@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .collection {
+            cursor: pointer;
+        }
+
+        .outer {
+            width:500px;
+            height:100px;
+            margin: 0 auto;
+            border: 5px solid red;
+        }
+
+        .login_button {
+            width: 300px;
+            height: 30px;
+            font-size: 20px;
+            color: black;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="login_button" id="a">login</div>
+    </div>
+
+
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script>
+        var auth, database, userInfo, selectedKey;
+        // Initialize Firebase
+        //파이어 베이스 인증키
+        var config = {
+            apiKey: "AIzaSyDAX1SeoWKM6gYrZHCMZhk7HK3TWZxwy2M",
+            authDomain: "kook-46ea7.firebaseapp.com",
+            databaseURL: "https://kook-46ea7.firebaseio.com",
+            projectId: "kook-46ea7",
+            storageBucket: "kook-46ea7.appspot.com",
+            messagingSenderId: "840857201890"
+        };
+        firebase.initializeApp(config);
+
+        //로그인 버튼 구현
+        function g_login() {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider);
+        }
+
+        //구글 로그아웃
+        function g_logout() {
+            firebase.auth().signOut();
+            window.location.reload()//윈도우 로그아웃
+        }
+
+
+    </script >
+</body>
+</html>
